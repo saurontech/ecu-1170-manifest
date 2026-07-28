@@ -6,7 +6,7 @@
   <remote fetch="https://github.com/JeffyCN/" name="github"/>
   <remote fetch="https://git.openembedded.org" name="oe"/>
   <remote fetch="https://git.yoctoproject.org" name="yocto"/>
-  <remote fetch="https://github.com/saurontech/meta-ecu-1170.git" name="adv">
+  <remote fetch="https://github.com/saurontech/meta-ecu-1170.git" name="adv" />
 
   <default revision="wrynose" sync-c="true" sync-j="8"/>
 
