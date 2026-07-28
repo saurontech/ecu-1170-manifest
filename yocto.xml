@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <notice>Your sources have been sync'd successfully.</notice>
+  <remote fetch="https://github.com/OSSystems" name="browser"/>
+  <remote fetch="https://github.com/kraj" name="clang"/>
+  <remote fetch="https://github.com/JeffyCN/" name="github"/>
+  <remote fetch="https://git.openembedded.org" name="oe"/>
+  <remote fetch="https://git.yoctoproject.org" name="yocto"/>
+
+  <default revision="wrynose" sync-c="true" sync-j="8"/>
+
+  <project name="bitbake" path="layers/bitbake" remote="oe" revision="2.18"/>
+  <project name="yocto-docs" path="layers/yocto-docs" remote="yocto"/>
+  <project name="meta-yocto" path="layers/meta-yocto" remote="yocto"/>
+  <project name="meta-browser" path="layers/meta-browser" remote="browser"/>
+  <project name="meta-clang" path="layers/meta-clang" remote="clang"/>
+  <project name="meta-openembedded" path="layers/meta-openembedded" remote="oe"/>
+  <project name="openembedded-core" path="layers/openembedded-core" remote="oe"/>
+  <project name="meta-rockchip" path="layers/meta-rockchip" remote="github"/>
+  <project name="yocto-conf" path="build/conf" remote="github">
+    <linkfile dest="build/conf/local.conf" src="rockchip-rk3588-evb.conf"/>
+    <linkfile dest="oe-init-build-env" src="init-build-env"/>
+  </project>
+</manifest>
