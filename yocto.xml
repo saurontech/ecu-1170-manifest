@@ -19,7 +19,7 @@
   <project name="openembedded-core" path="layers/openembedded-core" remote="oe"/>
   <project name="meta-rockchip" path="layers/meta-rockchip" remote="github"/>
   <project name="yocto-conf" path="build/conf" remote="github">
-    <linkfile dest="build/conf/local.conf" src="rockchip-rk3588-evb.conf"/>
+    <linkfile dest="build/conf/local.conf" src="rockchip-rk3568-evb.conf"/>
     <linkfile dest="oe-init-build-env" src="init-build-env"/>
   </project>
   <project name="meta-ecu-1170" path="layers/meta-ecu-1170" remote="adv"/>
