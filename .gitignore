@@ -1,0 +1,12 @@
+# repo/Yocto generated content
+.repo/
+build/
+packages/
+layers/
+
+# Generated linkfile from yocto.xml
+oe-init-build-env
+
+# Local backup archives
+*.tar.gz
+*.tgz
