@@ -1,16 +1,29 @@
 # Manifest of the Advantech Linux TSU Yocto project
 The goal of this project is to release opensource Linux source code that runs on Advantech Hardware
 
-## Download the Yocto Linux for ECU-150-12A1 & ECU-150-12A1U and setup environment variables
+## Download the Yocto Linux for ECU-1170 and setup environment variables
 For downloading the source code and setting up the environment, follow the instructions below:
 ```console
 foo@bar:~/yocto$ repo init -u https://github.com/saurontech/ecu-1170-manifest.git -b main -m yocto.xml
 foo@bar:~/yocto$ repo sync
 foo@bar:~/yocto$ source ./oe-init-build-env
-foo@bar:~/yocto$ bitbake core-image-minimal
+foo@bar:~/yocto/build$ ../layers/meta-ecu-1170/scripts/ecu1170-setup.sh
+foo@bar:~/yocto/build$ bitbake core-image-minimal
 ```
-After the commands, not only was the Yocto project for ECU-150-A1 downloaded, the operating console were also setup to operate bitbaker.
-Please also notice, that after the commands, your current position has been changed to the build directory!
+After the commands, not only was the Yocto project for ECU-1170 downloaded, the operating console was also setup to operate bitbake.
+Please also notice, that after sourcing the build environment, your current position has been changed to the build directory.
+
+>[!IMPORTANT]
+> `ecu1170-setup.sh` replaces local edits to files from the shared `yocto-conf` repository.
+> It performs the ECU-1170 specific setup in one idempotent command:
+> - regenerates `build/conf/local.conf` with `MACHINE = "ecu1170"`
+> - includes both `include/common.conf` and `include/demo.conf`, matching the validated demo rootfs content
+> - adds `layers/meta-ecu-1170` to `build/conf/bblayers.conf` when absent
+> - removes local `build/workspace` entries from `build/conf/bblayers.conf`
+>
+> Re-run it after every `repo sync` or after restoring `build/conf` from `yocto-conf`.
+> Re-running it is harmless.
+
 If, in the future, to operate bitbake from another console; in that spacific console, use the command:
 ```console
 foo@bar:~/yocto$ source ./setup-environment build
